@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Student Management CRUD</title>
+  </head>
+  <body>
+    <main>
+      <h1>Student Management CRUD</h1>
+      <form>
+        <div>
+          <input
+            type="text"
+            placeholder="Name"
+            id="name"
+            name="name"
+            required
+          />
+          <input
+            type="email"
+            placeholder="Email"
+            name="email"
+            id="email"
+            required
+          />
+          <input
+            type="text"
+            placeholder="GPA"
+            name="grade"
+            id="grade"
+            required
+          />
+          <input type="number" placeholder="Age" name="age" id="age" required />
+          <input
+            type="text"
+            placeholder="Degree"
+            id="degree"
+            name="degree"
+            required
+          />
+        </div>
+        <button id="btn" type="submit">Add Student</button>
+      </form>
+
+      <input
+        type="text"
+        placeholder="Search By Name, email or degree"
+        id="search"
+        name="search"
+      />
+      <table border="1">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Student Name</th>
+            <th>Email</th>
+            <th>Age</th>
+            <th>GPA</th>
+            <th>Degree</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </main>
+    <script>
+      console.clear();
+    </script>
+    <script src="script.js"></script>
+  </body>
+</html>

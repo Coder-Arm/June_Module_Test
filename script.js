@@ -24,7 +24,7 @@ function renderDataTable(item){
     
         editKey.addEventListener("click",() => {
             btn.innerText = "Edit Student";
-            btn.className = "edit-btn";
+            localStorage.setItem("idKey",item.ID);
             form["name"].value = item.name;
             form["email"].value = item.email;
             form["age"].value = item.age;
@@ -33,7 +33,6 @@ function renderDataTable(item){
         })
         deleteKey.addEventListener("click",() => {
             students.splice(item.ID-1,1); 
-            // console.log(students);
             tbody.removeChild(row);
          })
 }
@@ -48,7 +47,7 @@ form.addEventListener("submit",(e) => {
         degree : form["degree"].value
     }
     if(btn.innerText === "Edit Student"){
-        let obj = {ID: id , name: `${userData.name}`, age: `${userData.age}`, grade: `${userData.grade}`, degree: `${userData.degree}`, email: `${userData.email}`};
+        let obj = {ID: localStorage.getItem("idKey") , name: `${userData.name}`, age: `${userData.age}`, grade: `${userData.grade}`, degree: `${userData.degree}`, email: `${userData.email}`};
         students.splice(obj.ID-1,1,obj);
         tbody.innerHTML = "";
         for(let i = 0 ; i < students.length; i++){
@@ -61,6 +60,7 @@ form.addEventListener("submit",(e) => {
      students.push(obj);
     renderDataTable(obj);
     }
+    form.reset();
 })
 
 searchInput.addEventListener("keyup",() => {

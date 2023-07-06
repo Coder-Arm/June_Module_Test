@@ -2,6 +2,7 @@ const form = document.querySelector("form");
 const tbody = document.querySelector("tbody");
 const btn = document.getElementById("btn");
 const searchInput = document.getElementById("search");
+
 let id = 0;
 
 let students = [];
@@ -32,8 +33,25 @@ function renderDataTable(item){
             form["degree"].value = item.degree;
         })
         deleteKey.addEventListener("click",() => {
+            const deleteMsg = document.createElement("div");
+            if(confirm("Do you want to delete this row")){
             students.splice(item.ID-1,1); 
             tbody.removeChild(row);
+            deleteMsg.className = "deleteSuccess";
+            deleteMsg.innerText = "Row deleted successfully" 
+            document.body.appendChild(deleteMsg);
+              setTimeout(() => {
+               deleteMsg.style.display = "none"
+              }, 2000);
+            }
+            else{
+                deleteMsg.className = "deleteFail";
+                deleteMsg.innerText ="Deletion failed!"
+                document.body.appendChild(deleteMsg);
+              setTimeout(() => {
+               deleteMsg.style.display = "none"
+              }, 2000);
+            }
          })
 }
 

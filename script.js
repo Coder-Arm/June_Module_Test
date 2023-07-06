@@ -72,6 +72,7 @@ form.addEventListener("submit",(e) => {
             let item = students[i];
             renderDataTable(item);
         }
+        btn.innerText = "Add Student";
     }
     else{
     let obj = {ID: ++id , name: `${userData.name}`, age: `${userData.age}`, grade: `${userData.grade}`, degree: `${userData.degree}`, email: `${userData.email}`};
